@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+   --black: #000000;
+   --white: #FFFFFF;
+   --grey: #C6C6C6;
+   --darkgrey: #6f6f6f;
+   --pripurple: #B90FAD;
+   --secpruple: #e346d9;
+}
+
+
 /*==================
  Navbar
  ===================*/
@@ -21,4 +31,5 @@
     background: rgb(135,0,123);
 background: linear-gradient(52deg, rgba(135,0,123,1) 30%, rgba(199,137,0,1) 100%);
  }
+
 
