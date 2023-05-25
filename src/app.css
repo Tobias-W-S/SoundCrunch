@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+   --black: #000000;
+   --white: #FFFFFF;
+   --grey: #C6C6C6;
+   --darkgrey: #6f6f6f;
+   --pripurple: #B90FAD;
+   --secpruple: #e346d9;
+}
+
+
+/*==================
+ Navbar
+ ===================*/
+
+ .backcolor{
+    background: rgb(167,0,255); 
+    background: linear-gradient(90deg, rgba(167,0,255,1) 37%, rgba(255,176,0,1) 100%);
+ }
+
+ .backcolor_up{
+    background: rgb(209,65,196);
+    background: linear-gradient(356deg, rgba(209,65,196,1) 37%, rgba(255,176,0,1) 100%);
+ }
+
+
+ .backcolor_main{
+    background: rgb(135,0,123);
+background: linear-gradient(52deg, rgba(135,0,123,1) 30%, rgba(199,137,0,1) 100%);
+ }
+
+

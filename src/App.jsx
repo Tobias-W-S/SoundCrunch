@@ -1,11 +1,14 @@
+
 import { useState, useEffect } from 'react';
 import login from './auth';
 import { logout } from './auth';
 
+import { BrowserRouter } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth();
 const user = auth.currentUser
+
 
 
 function App() {
@@ -33,8 +36,7 @@ function App() {
   }, []);
   
 
-  return (
-    
+  return (    
       <div>
         <button onClick={login}>Login</button>
         <br></br>
