@@ -1,7 +1,7 @@
 export const home = () =>{
     return(
         <div className="min-w-full min-h-screen bg-purple-700 flex justify-center items-center">
-
+                <div className="h-10"></div>
                 <div className="w-3/4 h-content bg-white rounded-lg flex flex-col">
                     <div className="flex flex-row h-56 w-full">
                         <img src="" alt="" />

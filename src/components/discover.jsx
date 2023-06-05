@@ -1,436 +1,58 @@
 export const discover = () =>{
     return(
-        <div className="min-w-full min-h-screen backcolor_main ">
-            <div className="w-full h-screen flex justify-center items-center overflow-hidden">
-                <div className="w-3/4 h-content bg-white rounded-lg flex flex-col">
-                    <div className="w-100 h-100 overflow-auto">[Intro]
-I'm hanging on to the other side
-I won't give up 'til the end of me
-
-[Interlude]
-Go!
-Yeah!
-
-[Refrain]
-Welcome to the mind of a different kind
-Where we've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story
-
-[Pre-Chorus]
-(Face your fear!)
-(Face your fear!)
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gonе
-I'll be the one to carry on (Carry on)
-And you can throw mе to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-You might also like
-Find Your Flame
-Tomoya Ohtani
-Break Through It All
-Tomoya Ohtani
-I’m Here
-Tomoya Ohtani
-[Post-Chorus]
-(Woah, woah)
-You're crossing the line
-(Woah, woah)
-Now we've run out of time
-(Woah, woah)
-I'll take what is mine
-
-[Interlude]
-Hrmm (Go!)
-
-[Bridge]
-And when the story ends
-It becomes a part of me
-I've given what it takes
-I'll find another way
-I used to never know
-But now it's crystal clear!
-This feeling's just a ghost
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gone
-I'll be the one to carry on (Carry on)
-And you can throw me to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-[Guitar Solo]
-
-[Chorus]
-I'm hanging on to the other side (To the other side)
-I won't give up 'til the end of me (End of me)
-I'm what you get when the stars collide (Stars collide)
-Now face it, you're just an enemy
-
-[Refrain]
-Welcome to the mind of a different kind
-We've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story[Intro]
-I'm hanging on to the other side
-I won't give up 'til the end of me
-
-[Interlude]
-Go!
-Yeah!
-
-[Refrain]
-Welcome to the mind of a different kind
-Where we've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story
-
-[Pre-Chorus]
-(Face your fear!)
-(Face your fear!)
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gonе
-I'll be the one to carry on (Carry on)
-And you can throw mе to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-You might also like
-Find Your Flame
-Tomoya Ohtani
-Break Through It All
-Tomoya Ohtani
-I’m Here
-Tomoya Ohtani
-[Post-Chorus]
-(Woah, woah)
-You're crossing the line
-(Woah, woah)
-Now we've run out of time
-(Woah, woah)
-I'll take what is mine
-
-[Interlude]
-Hrmm (Go!)
-
-[Bridge]
-And when the story ends
-It becomes a part of me
-I've given what it takes
-I'll find another way
-I used to never know
-But now it's crystal clear!
-This feeling's just a ghost
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gone
-I'll be the one to carry on (Carry on)
-And you can throw me to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-[Guitar Solo]
-
-[Chorus]
-I'm hanging on to the other side (To the other side)
-I won't give up 'til the end of me (End of me)
-I'm what you get when the stars collide (Stars collide)
-Now face it, you're just an enemy
-
-[Refrain]
-Welcome to the mind of a different kind
-We've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story[Intro]
-I'm hanging on to the other side
-I won't give up 'til the end of me
-
-[Interlude]
-Go!
-Yeah!
-
-[Refrain]
-Welcome to the mind of a different kind
-Where we've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story
-
-[Pre-Chorus]
-(Face your fear!)
-(Face your fear!)
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gonе
-I'll be the one to carry on (Carry on)
-And you can throw mе to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-You might also like
-Find Your Flame
-Tomoya Ohtani
-Break Through It All
-Tomoya Ohtani
-I’m Here
-Tomoya Ohtani
-[Post-Chorus]
-(Woah, woah)
-You're crossing the line
-(Woah, woah)
-Now we've run out of time
-(Woah, woah)
-I'll take what is mine
-
-[Interlude]
-Hrmm (Go!)
-
-[Bridge]
-And when the story ends
-It becomes a part of me
-I've given what it takes
-I'll find another way
-I used to never know
-But now it's crystal clear!
-This feeling's just a ghost
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gone
-I'll be the one to carry on (Carry on)
-And you can throw me to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-[Guitar Solo]
-
-[Chorus]
-I'm hanging on to the other side (To the other side)
-I won't give up 'til the end of me (End of me)
-I'm what you get when the stars collide (Stars collide)
-Now face it, you're just an enemy
-
-[Refrain]
-Welcome to the mind of a different kind
-We've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story[Intro]
-I'm hanging on to the other side
-I won't give up 'til the end of me
-
-[Interlude]
-Go!
-Yeah!
-
-[Refrain]
-Welcome to the mind of a different kind
-Where we've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story
-
-[Pre-Chorus]
-(Face your fear!)
-(Face your fear!)
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gonе
-I'll be the one to carry on (Carry on)
-And you can throw mе to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-You might also like
-Find Your Flame
-Tomoya Ohtani
-Break Through It All
-Tomoya Ohtani
-I’m Here
-Tomoya Ohtani
-[Post-Chorus]
-(Woah, woah)
-You're crossing the line
-(Woah, woah)
-Now we've run out of time
-(Woah, woah)
-I'll take what is mine
-
-[Interlude]
-Hrmm (Go!)
-
-[Bridge]
-And when the story ends
-It becomes a part of me
-I've given what it takes
-I'll find another way
-I used to never know
-But now it's crystal clear!
-This feeling's just a ghost
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gone
-I'll be the one to carry on (Carry on)
-And you can throw me to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-[Guitar Solo]
-
-[Chorus]
-I'm hanging on to the other side (To the other side)
-I won't give up 'til the end of me (End of me)
-I'm what you get when the stars collide (Stars collide)
-Now face it, you're just an enemy
-
-[Refrain]
-Welcome to the mind of a different kind
-We've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story[Intro]
-I'm hanging on to the other side
-I won't give up 'til the end of me
-
-[Interlude]
-Go!
-Yeah!
-
-[Refrain]
-Welcome to the mind of a different kind
-Where we've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story
-
-[Pre-Chorus]
-(Face your fear!)
-(Face your fear!)
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gonе
-I'll be the one to carry on (Carry on)
-And you can throw mе to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-You might also like
-Find Your Flame
-Tomoya Ohtani
-Break Through It All
-Tomoya Ohtani
-I’m Here
-Tomoya Ohtani
-[Post-Chorus]
-(Woah, woah)
-You're crossing the line
-(Woah, woah)
-Now we've run out of time
-(Woah, woah)
-I'll take what is mine
-
-[Interlude]
-Hrmm (Go!)
-
-[Bridge]
-And when the story ends
-It becomes a part of me
-I've given what it takes
-I'll find another way
-I used to never know
-But now it's crystal clear!
-This feeling's just a ghost
-
-[Chorus]
-It's time to face your fear
-'Cause when your time has come and gone
-I'll be the one to carry on (Carry on)
-And you can throw me to the wolves (Throw me to the wolves)
-'Cause I am undefeatable
-I'm hanging on to the other side
-I won't give up 'til the end of me
-I'm what you get when the stars collide
-Now face it, you're just an enemy
-[Guitar Solo]
-
-[Chorus]
-I'm hanging on to the other side (To the other side)
-I won't give up 'til the end of me (End of me)
-I'm what you get when the stars collide (Stars collide)
-Now face it, you're just an enemy
-
-[Refrain]
-Welcome to the mind of a different kind
-We've been growing slowly
-Think I'm on eleven, but I'm on a nine
-Guess you don't really know me
-Running from the past is a losing game
-It never brings you glory
-Been down this road before
-Already know this story</div>
+        <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
+                <div className="w-3/4 h-content bg-white rounded-lg flex flex-row h-full">
+                Immortal temptation
+Takes over my mind, condemned
+Falling weak on my knees
+Summon the strength of mayhem
+I am the storm that is approaching
+Provoking black clouds in isolation
+I am reclaimer of my name
+Born in flames, I have been blessed
+My family crest is a demon of death
+Forsakened, I am awakened
+A phoenix's ash in dark divine
+Descending misery
+Destiny chasing time
+Inherit the nightmare, surrounded by fate
+Can't run away
+Keep walking the line, between the light
+Led astray
+Through vacant halls I won't surrender
+The truth revealed in eyes of ember
+We fight through fire and ice forever
+Two souls once lost, and now they remember
+I am the storm that is approaching
+Provoking black clouds in isolation
+I am reclaimer of my name
+Born in flames, I have been blessed
+My family crest is a demon of death
+Forsakened, I am awakened
+A phoenix's ash in dark divine
+Descending misery
+Destiny chasing time
+Disappear into the night
+Lost shadows left behind
+Obsession's pulling me
+Fading, I've come to take what's mine
+Lurking in the shadows under veil of night
+Constellations of blood pirouette
+Dancing through the graves of those who stand at my feet
+Dreams of the black throne I keep on repeat
+A derelict of dark, summoned from the ashes
+The puppet master congregates all the masses
+Pulling strings, twisting minds as blades hit
+You want this power? Then come try and take it
+Beyond the tree, fire burns
+Secret love, bloodline yearns
+Dark minds embrace, crimson joy
+Does your dim heart heal or destroy?
+Bury the light deep within
+Cast aside, there's no coming home
+We're burning chaos in the wind
+Drifting in the ocean all alone
                 </div>
-            </div>
         </div>
     )
 }

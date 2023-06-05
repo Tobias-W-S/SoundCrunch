@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Link to="/discover"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Discover</button></Link>
       </div>
     </div>
-
+    <div className="h-10"></div>
       <Routes>
         <Route path="/" element={<App/>}/>
         <Route path="/home" element={<Home/>}/>
