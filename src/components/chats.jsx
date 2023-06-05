@@ -30,7 +30,26 @@ export const chats = () =>{
                     </div>
                     <div className="w-2/3 h-full flex flex-col">
                         <div className="h-2/3 border-b-2 flex flex-col">
-                            
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    Wow such cool, much doge
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    Wow such cool, much doge
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    Wow such cool, much doge
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    Wow such cool, much doge
+                                </p>
+                            </div>
                         </div>
                         <div className="">
                             <input className="w-96 h-10 bg-red-400" type="text" name="message" id="message"/>
