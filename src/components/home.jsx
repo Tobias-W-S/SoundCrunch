@@ -11,7 +11,7 @@ export const home = () =>{
                         </div>
                         <div className="h-full w-2/3 bg-red-300">
                             <ul className="h-3/4 flex flex-col justify-around">
-                                <li className="font-semibold text-xl border">...NAME...</li>
+                                <li className="font-semibold text-xl border-b-2 border-red-100">...NAME...</li>
                                 <li>...EMAIL...</li>
                                 <li>...LISTENS...</li>
                                 <li>...SONGS...</li>
