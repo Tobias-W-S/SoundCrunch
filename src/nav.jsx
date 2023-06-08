@@ -23,6 +23,7 @@ function nav(){
         const uid = user.uid;
   
         setStoredUser(user);
+        console.log(user);
         // ...
       } else {
         setStoredUser("");
@@ -34,6 +35,7 @@ function nav(){
     useEffect(() =>{
       setStoredUser(user);
     }, []);
+
     return(
       <div className=" flex flex-row items-center w-full h-10 bg-orange-500 shadow-2xl z-50 fixed">
       <div className="w-40 h-100 bg-white-200"><img src="./components/img/Logo.png" alt="" />there is a img here</div>
