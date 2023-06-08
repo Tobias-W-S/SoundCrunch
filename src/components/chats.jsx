@@ -29,11 +29,80 @@ export const chats = () =>{
                         </div>
                     </div>
                     <div className="w-2/3 h-full flex flex-col">
-                        <div className="h-2/3 border-b-2 flex flex-col">
-                            
+                        <div className="h-3/4 border-b-2 flex flex-col overflow-auto">
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    hi
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-blue-100 flex items-center justify-end border-b-2 border-black-200 mb-3">
+                                <p>
+                                    GAY
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    Wow such cool, much doge
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-blue-100 flex items-center justify-end border-b-2 border-black-200 mb-3">
+                                <p>
+                                    GAYmen
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
+                            <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
+                                <p>
+                                    gay?
+                                </p>
+                            </div>
                         </div>
-                        <div className="">
-                            <input className="w-96 h-10 bg-red-400" type="text" name="message" id="message"/>
+                        <div className="h-20 flex items-center justify-center bg-black-100">
+                            <input className="w-3/4 h-10 border-2 rounded-l-xl" type="text" name="message" id="message"/>
                             <input type="submit" value=">"  className="w-10 h-10 bg-green-100 hover:bg-red-200 hover:cursor-pointer"/>
                         </div>        
                     </div>
