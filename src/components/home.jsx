@@ -1,4 +1,44 @@
-export const home = () =>{
+import { useState, useEffect } from 'react';
+import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+
+export const home = (data) =>{
+    const [storedUser, setStoredUser] = useState([]);
+    const [file, setFile] = useState("");
+    const [files, setFiles] = useState([]);
+    const storage = getStorage();
+
+    useEffect(() =>{
+        setStoredUser(data.user);
+        fetchBytes();
+    }, [data.user]);
+    
+
+    const handleChange = (event) =>{
+        setFile(event.target.files[0]);
+    }
+
+    const handleUpload = () =>{
+        const storageRef = ref(storage, `bytes/${data.userUID}/${file.name}`);
+        uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded soundbyte!');
+            fetchBytes();
+        });
+    }
+
+    const fetchBytes = async () =>{
+        const storageRef = ref(storage, `bytes/${data.userUID}/`);
+        const result = await listAll(storageRef);
+
+        const urlPromises = result.items.map((soundRef) =>
+            getDownloadURL(soundRef));
+
+            Promise.all(urlPromises).then((urls) => {
+                setFiles(urls); // Set the file URLs in state
+            }).catch((error) => {
+                console.error("Error fetching file URLs:", error);
+            });
+    }
+
     return(
         <div className="min-w-full min-h-screen bg-purple-700 flex justify-center items-center">
                 <div className="h-10"></div>
@@ -6,13 +46,13 @@ export const home = () =>{
                     <div className="flex flex-row h-96 w-full m-4">
                         <div className="w-96 h-full bg-green-700 flex items-center justify-center">
                             <div className="w-3/4 h-3/4 bg-red-200">
-                            <img src="" alt="Profile pick"/>
+                            <img src={storedUser ? storedUser.photoURL : ""} alt="Profile pick"/>
                             </div>
                         </div>
                         <div className="h-full w-2/3 bg-red-300">
                             <ul className="h-3/4 flex flex-col justify-around">
-                                <li className="font-semibold text-xl border-b-2 border-red-100">...NAME...</li>
-                                <li>...EMAIL...</li>
+                                <li className="font-semibold text-xl border-b-2 border-red-100">{storedUser ? storedUser.displayName : "Not logged in"}</li>
+                                <li>{storedUser ? storedUser.email : "Not logged in"}</li>
                                 <li>...LISTENS...</li>
                                 <li>...SONGS...</li>
                                 <li>...LIKES...</li>
@@ -20,9 +60,15 @@ export const home = () =>{
                         </div>
                         <div className="h-full w-1/4 bg-blue-300 flex flex-col justify-start">
                             <p className="font-semibold text-xl">Top SONGS:</p>
-                            <p>MP3 sounds</p>
-                            <p>MP3 sounds</p>
-                            <p>MP3 sounds</p>
+                            {files.map((url, index) => (
+                                <audio key={index} controls>
+                                    <source src={url} type="audio/mpeg" />  
+                                   Your browser does not support the audio element.
+                                </audio>
+                              
+                            ))}
+                            <input type="file" onChange={handleChange}/>
+                            <button onClick={() => handleUpload()}>Upload Soundbyte</button>
                         </div>
                     </div>
                     <div className="flex flex-row h-96 w-full">
