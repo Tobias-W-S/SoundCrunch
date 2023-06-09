@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'; 
 import Home from './components/home.jsx'
 import Chats from './components/chats.jsx'
@@ -9,6 +8,9 @@ import { useState, useEffect } from 'react';
 import login from './auth';
 import { logout } from './auth';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { doc, setDoc, query, collection, where } from "firebase/firestore"; 
+import db from './config'
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   const user = auth.currentUser
   
   const [storedUser, setStoredUser] = useState([]);
+  const [userUID, setuserUID] = useState([]);
   
   useEffect(() =>{
     setStoredUser(user);
@@ -26,7 +29,13 @@ function App() {
   onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-  
+    setuserUID(uid);
+    const tempU = query(collection(db, "users"), where("UID_G", "==", uid))
+
+    if (tempU != null){
+      setUser(uid);
+    }
+
     setStoredUser(user);
       console.log(user);
   
@@ -35,7 +44,12 @@ function App() {
     }
   });
     
-  
+  const setUser = async(uid) =>{
+    await setDoc(doc(db, "users", uid), {
+      uid: uid,
+    });
+  }
+
   return (    
  
     <BrowserRouter>
@@ -51,7 +65,7 @@ function App() {
     </div>
     <div className="h-10"></div>
       <Routes>
-        <Route path="/home" element={<Home user={storedUser} />}/>
+        <Route path="/home" element={<Home user={storedUser} userUID={userUID} />}/>
         <Route path="/chats" element={<Chats/>}/>
         <Route path="/discover" element={<Discover/>}/>
       </Routes>
