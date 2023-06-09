@@ -61,7 +61,25 @@ function App() {
         <Link to="/chats"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Chats</button></Link>
         <Link to="/discover"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Discover</button></Link>
         </div>
-        <div className=' w-2/3 flex flex-row justify-end'><p className='text-white font-bold text-lg'> {!storedUser ?   storedUser.email: <a><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400' onClick={logout}>Logout</button></a>  } || {storedUser ? storedUser.email : <a><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400' onClick={login}>Login</button></a>} </p></div>  
+        <div className='w-2/3 flex flex-row justify-end'>
+          <p className='text-white font-bold text-lg'>
+            {!storedUser ? null :
+              storedUser.email ? (
+                <a>
+                  <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={logout}>
+                    Logout
+                  </button>
+                </a>
+              ) : (
+                <a>
+                  <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={login}>
+                    Login
+                  </button>
+                </a>
+              )
+            }
+          </p>
+        </div>
     </div>
     <div className="h-10"></div>
       <Routes>

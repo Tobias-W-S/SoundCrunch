@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 
-export const home = (data) =>{
+export const Home = (data) =>{
     const [storedUser, setStoredUser] = useState([]);
     const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
@@ -89,4 +89,4 @@ export const home = (data) =>{
     )
 }
 
-export default home
+export default Home
