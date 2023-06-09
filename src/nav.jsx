@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'; 
-
+import ReactAudioPlayer from 'react-audio-player';
 import { useState, useEffect } from 'react';
 import login from './auth';
 import { logout } from './auth';
@@ -37,7 +37,7 @@ function nav(){
     }, []);
 
     return(
-      <div className=" flex flex-row items-center w-full h-10 bg-orange-500 shadow-2xl z-50 fixed">
+      <div className="flex flex-row items-center w-full h-10 bg-orange-500 shadow-2xl z-50 fixed">
       <div className="w-40 h-100 bg-white-200"><img src="./components/img/Logo.png" alt="" />there is a img here</div>
       <div className="flex flex-row" >
         <Link to="/"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>App</button></Link>
@@ -48,7 +48,14 @@ function nav(){
         <a href=""><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400' onClick={logout}>Logout</button></a>
       </div>
       <div className=' w-1/2 flex flex-row justify-end'><p className='text-white font-bold text-lg' > || {storedUser ? storedUser.email : "Not logged in"}</p></div>
+                  <ReactAudioPlayer
+                  src="my_audio_file.ogg"
+                  autoPlay
+                  controls
+                  />
     </div>
+
+
     )
 }
 
