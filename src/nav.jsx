@@ -48,11 +48,6 @@ function nav(){
         <a href=""><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400' onClick={logout}>Logout</button></a>
       </div>
       <div className=' w-1/2 flex flex-row justify-end'><p className='text-white font-bold text-lg' > || {storedUser ? storedUser.email : "Not logged in"}</p></div>
-                  <ReactAudioPlayer
-                  src="my_audio_file.ogg"
-                  autoPlay
-                  controls
-                  />
     </div>
 
 
