@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'; 
+import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom'; 
 import Home from './components/home.jsx'
 import Chats from './components/chats.jsx'
 import Discover from './components/discover.jsx'
@@ -20,6 +20,8 @@ function App() {
   
   const [storedUser, setStoredUser] = useState([]);
   const [userUID, setuserUID] = useState([]);
+
+
   
   useEffect(() =>{
     setStoredUser(user);
@@ -33,7 +35,7 @@ function App() {
     const tempU = query(collection(db, "users"), where("UID_G", "==", uid))
 
     if (tempU != null){
-      setUser(uid);
+      setUser(uid, user.displayName, user.photoURL);
     }
 
     setStoredUser(user);
@@ -44,9 +46,12 @@ function App() {
     }
   });
     
-  const setUser = async(uid) =>{
+  const setUser = async(uid, displayName, photoURL) =>{
     await setDoc(doc(db, "users", uid), {
       uid: uid,
+      displayName: displayName,
+      photoURL: photoURL,
+      isPrivate: true,
     });
   }
 
@@ -62,30 +67,27 @@ function App() {
         <Link to="/discover"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Discover</button></Link>
         </div>
         <div className='w-2/3 flex flex-row justify-end'>
-          <p className='text-white font-bold text-lg'>
-            {!storedUser ? null :
-              storedUser.email ? (
-                <a>
-                  <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={logout}>
-                    Logout
-                  </button>
-                </a>
-              ) : (
-                <a>
-                  <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={login}>
-                    Login
-                  </button>
-                </a>
-              )
-            }
-          </p>
-        </div>
+  <p className='text-white font-bold text-lg'>
+    {storedUser && storedUser.email ? (
+      <>
+        <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={logout}>
+          Logout
+        </button>
+        <span>{storedUser.displayName}</span> {/* Display user's display name */}
+      </>
+    ) : (
+      <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={login}>
+        Login
+      </button>
+    )}
+  </p>
+</div>
     </div>
     <div className="h-10"></div>
       <Routes>
-        <Route path="/home" element={<Home user={storedUser} userUID={userUID} />}/>
+        <Route path="/home" element={storedUser ?  <Home user={storedUser} userUID={userUID} /> : <Navigate to="/" replace />}/>
         <Route path="/chats" element={<Chats/>}/>
-        <Route path="/discover" element={<Discover/>}/>
+        <Route path="/discover" element={<Discover userUID={userUID} />}/>
       </Routes>
     </BrowserRouter>
   )

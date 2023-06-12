@@ -12,7 +12,6 @@ export const Home = (data) =>{
         fetchBytes();
     }, [data.user]);
     
-
     const handleChange = (event) =>{
         setFile(event.target.files[0]);
     }
@@ -33,7 +32,7 @@ export const Home = (data) =>{
             getDownloadURL(soundRef));
 
             Promise.all(urlPromises).then((urls) => {
-                setFiles(urls); // Set the file URLs in state
+                setFiles(urls);
             }).catch((error) => {
                 console.error("Error fetching file URLs:", error);
             });
@@ -67,7 +66,7 @@ export const Home = (data) =>{
                                 </audio>
                               
                             ))}
-                            <input type="file" onChange={handleChange}/>
+                            <input type="file" accept="audio/mpeg" onChange={handleChange}/>
                             <button onClick={() => handleUpload()}>Upload Soundbyte</button>
                         </div>
                     </div>
