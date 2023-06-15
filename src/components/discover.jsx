@@ -14,7 +14,7 @@ export const discover = (data) =>{
     }, []);
 
     const getUsers = async() =>{
-        const tempCol = query(collection(db, "users"), where("isPrivate", "==", true));
+        const tempCol = query(collection(db, "users"), where("isPrivate", "==", false));
         const colSnapshot = await getDocs(tempCol);
         const usersData = colSnapshot.docs.map((doc) => doc.data());
         setUsers(usersData);
