@@ -73,6 +73,7 @@ function App() {
         <button className='w-20 h-full text-white font-bold hover:border-b-2 hover:border-purple-500 hover:bg-orange-400' onClick={logout}>
           Logout
         </button>
+        <span>|| </span>
         <span>{storedUser.displayName}</span> {/* Display user's display name */}
       </>
     ) : (
