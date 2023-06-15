@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import login from './auth';
 import { logout } from './auth';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { doc, setDoc, query, collection, where } from "firebase/firestore"; 
+import { doc, setDoc, query, collection, where, getDocs } from "firebase/firestore"; 
 import db from './config'
 
 
@@ -19,24 +19,19 @@ function App() {
   const user = auth.currentUser
   
   const [storedUser, setStoredUser] = useState([]);
-  const [userUID, setuserUID] = useState([]);
+  const [userUID, setuserUID] = useState();
 
-
-  
   useEffect(() =>{
     setStoredUser(user);
-  }, []);
+    console.log('target: ' + storedUser.uid)
+    checkForExistingUser(user);
+  }, [user]);
   
   
   onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     setuserUID(uid);
-    const tempU = query(collection(db, "users"), where("UID_G", "==", uid))
-
-    if (tempU != null){
-      setUser(uid, user.displayName, user.photoURL);
-    }
 
     setStoredUser(user);
       console.log(user);
@@ -45,6 +40,16 @@ function App() {
       setStoredUser("");
     }
   });
+
+  const checkForExistingUser = async (user) => {
+    const querySnapshot = await getDocs(
+      query(collection(db, "users"), where("uid", "==", userUID))
+    );
+  
+    if (querySnapshot.empty) {
+      await setUser(userUID, user.displayName, user.photoURL);
+    }
+  };
     
   const setUser = async(uid, displayName, photoURL) =>{
     await setDoc(doc(db, "users", uid), {

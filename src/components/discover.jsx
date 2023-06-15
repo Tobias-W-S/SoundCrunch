@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import db from '../config';
 
 export const discover = (data) =>{
@@ -10,7 +10,7 @@ export const discover = (data) =>{
     }, []);
 
     const getUsers = async() =>{
-        const tempCol = query(collection(db, "users"), where("isPrivate", "==", true));
+        const tempCol = query(collection(db, "users"), where("isPrivate", "==", false));
         const colSnapshot = await getDocs(tempCol);
         const usersData = colSnapshot.docs.map((doc) => doc.data());
         setUsers(usersData);
