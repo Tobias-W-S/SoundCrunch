@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import db from '../config';
+import { BrowserRouter } from 'react-router-dom';
+import Nieghbour from './neighbour.jsx'
 
 export const discover = (data) =>{
     const [users, setUsers] = useState([]);
@@ -46,11 +48,20 @@ export const discover = (data) =>{
     }
     return(
         <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
-            <div className="w-3/4 h-content bg-white rounded-lg flex flex-row h-full">
-                {users.map((user) => (
-                    
+            <div className="w-3/4 h-full bg-white rounded-lg flex flex-col">
+                <div className="h-32 w-full border-b-4 p-4">
+                    <h1>Discover</h1>
+                    <p>here you can discover new peapole and SONGS.
+                        ow about a random song: 
+                    </p>
+                    <button className='bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100' >Random song!</button>
+                {/* Hier moet de audio speler die het nu even niet doet */}
+                </div>
+                 <div className="w-full h-content flex flex-row">
+                    {users.map((user) => (
+
                     user.uid !== data.userUID ?
-                <div className="w-1/3 h-96 border-4 border-orange-400">
+                    <div className="w-1/3 h-96 border-4 border-orange-400">
                     <div className="h-2/3 w-full flex flex-row border-b-2 border-purple-700">
                         <div className="w-1/2 h-full">
                             <img src={user.photoURL} alt="User image" />
@@ -59,6 +70,15 @@ export const discover = (data) =>{
                         <ul><li>{user.displayName}</li><li>{user.uid}</li><li>{user.email}</li><li>{user.providerId}</li><li>{user.emailVerified}</li><li>...likes...</li></ul> 
                         <div className="h-12 w-full flex fex-row">
                             <button className='h-10 w-24 bg-green-300 hover:bg-blue-200 text-xl rounded-full'>Like</button>
+                            {/* <BrowserRouter>
+                                <Link to="/neighbour"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Profile</button></Link>
+                                <Routes>
+                                    <Route path="/discover" element={Nieghbour}/>
+                                </Routes>
+                            </BrowserRouter> */}
+
+                            {/* Tobias dit werkt half, hier moet in iedergeval de knop om naar de neighbour pagina te gaan. */}
+                          <button className='h-10 w-24 bg-purple-300 hover:bg-orange-400 text-xl rounded-full'>Profile</button>
                         </div>
                         </div>
                        
@@ -76,6 +96,7 @@ export const discover = (data) =>{
                     </div>
                 </div>
                     : null))}
+            </div>
             </div>
         </div>
     )
