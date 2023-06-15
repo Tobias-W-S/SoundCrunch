@@ -56,7 +56,12 @@ export const discover = (data) =>{
                             <img src={user.photoURL} alt="User image" />
                         </div>
                         <div className="w-1/2 h-full"> 
-                        <ul><li>{user.displayName}</li><li>{user.uid}</li><li>{user.email}</li><li>{user.providerId}</li><li>{user.emailVerified}</li></ul></div>
+                        <ul><li>{user.displayName}</li><li>{user.uid}</li><li>{user.email}</li><li>{user.providerId}</li><li>{user.emailVerified}</li><li>...likes...</li></ul> 
+                        <div className="h-12 w-full flex fex-row">
+                            <button className='h-10 w-24 bg-green-300 hover:bg-blue-200 text-xl rounded-full'>Like</button>
+                        </div>
+                        </div>
+                       
                     </div>
                     <div className="w-full h-1/3">
                     {files.map((url, index) => (

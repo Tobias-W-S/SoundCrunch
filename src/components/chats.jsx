@@ -37,7 +37,7 @@ export const chats = () =>{
                             </div>
                             <div className="h-10 w-content bg-blue-100 flex items-center justify-end border-b-2 border-black-200 mb-3">
                                 <p>
-                                    GAY
+                                    game?
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
@@ -47,57 +47,57 @@ export const chats = () =>{
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-blue-100 flex items-center justify-end border-b-2 border-black-200 mb-3">
                                 <p>
-                                    GAYmen
+                                    gaymen
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                             <div className="h-10 w-content bg-green-100 flex items-center border-b-2 border-black-200 mb-3">
                                 <p>
-                                    gay?
+                                    game??
                                 </p>
                             </div>
                         </div>

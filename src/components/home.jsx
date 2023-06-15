@@ -67,7 +67,7 @@ export const Home = (data) =>{
                               
                             ))}
                             <input type="file" accept="audio/mpeg" onChange={handleChange}/>
-                            <button onClick={() => handleUpload()}>Upload Soundbyte</button>
+                            <button className='bg-green-300 w-1/2 rounded-xl text-white hover:bg-green-600 h-12' onClick={() => handleUpload()}>Upload Soundbyte</button>
                         </div>
                     </div>
                     <div className="flex flex-row h-96 w-full justify-around p-4">
