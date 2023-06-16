@@ -45,7 +45,7 @@ export const Home = (data) =>{
                     <div className="flex flex-row h-96 w-full p-4">
                         <div className="w-96 h-full flex items-center justify-center">
                             <div className="w-3/4 h-3/4 ">
-                            <img src={storedUser ? storedUser.photoURL : ""} alt="Profile pick"/>
+                            <img className='w-full' src={storedUser ? storedUser.photoURL : ""} alt="Profile pick"/>
                             </div>
                         </div>
                         <div className="h-full w-2/3 border-r-4">

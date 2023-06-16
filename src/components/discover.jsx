@@ -64,7 +64,7 @@ export const discover = (data) =>{
                     <div className="w-1/3 h-96 border-4 border-orange-400">
                     <div className="h-2/3 w-full flex flex-row border-b-2 border-purple-700">
                         <div className="w-1/2 h-full">
-                            <img src={user.photoURL} alt="User image" />
+                            <img className='w-full' src={user.photoURL} alt="User image" />
                         </div>
                         <div className="w-1/2 h-full"> 
                         <ul><li>{user.displayName}</li><li>{user.uid}</li><li>{user.email}</li><li>{user.providerId}</li><li>{user.emailVerified}</li><li>...likes...</li></ul> 
