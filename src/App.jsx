@@ -57,6 +57,9 @@ function App() {
       displayName: displayName,
       photoURL: photoURL,
       isPrivate: true,
+      bio: "This is a user of SoundCrunch",
+      likes: 0,
+      
     });
   }
 
