@@ -1,23 +1,35 @@
 import { useState, useEffect } from 'react';
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
+import db from '../config'
 
 export const Home = (data) =>{
+    const { userUID } = useParams();
+
     const [storedUser, setStoredUser] = useState([]);
     const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
     const storage = getStorage();
 
     useEffect(() =>{
-        setStoredUser(data.user);
+        getUser();
         fetchBytes();
-    }, [data.user]);
+    }, [userUID]);
+
+    const getUser = async() =>{
+        const tempCol = query(collection(db, "users"), where("uid", "==", userUID));
+        const colSnapshot = await getDocs(tempCol);
+        const usersData = colSnapshot.docs.map((doc) => doc.data());
+        setStoredUser(usersData[0]);
+    }
     
     const handleChange = (event) =>{
         setFile(event.target.files[0]);
     }
 
     const handleUpload = () =>{
-        const storageRef = ref(storage, `bytes/${data.userUID}/${file.name}`);
+        const storageRef = ref(storage, `bytes/${userUID}/${file.name}`);
         uploadBytes(storageRef, file).then((snapshot) => {
             console.log('Uploaded soundbyte!');
             fetchBytes();
@@ -25,7 +37,7 @@ export const Home = (data) =>{
     }
 
     const fetchBytes = async () =>{
-        const storageRef = ref(storage, `bytes/${data.userUID}/`);
+        const storageRef = ref(storage, `bytes/${userUID}/`);
         const result = await listAll(storageRef);
 
         const urlPromises = result.items.map((soundRef) =>
