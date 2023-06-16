@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-import { doc, updateDoc } from "firebase/firestore";
-import db from "../config";
 
 export const Home = (data) =>{
     const [storedUser, setStoredUser] = useState([]);
@@ -13,27 +11,6 @@ export const Home = (data) =>{
         setStoredUser(data.user);
         fetchBytes();
     }, [data.user]);
-
-   
-
-    const changePrivacy = (privacySetting) =>{
-        const docRef = doc(db, "users", storedUser.uid);
-
-        //needs to change privacy based on previous setting
-
-        const data = {
-            isPrivate : privacySetting,
-        }; 
-
-        updateDoc(docRef, data)
-        .then(docRef => {
-            console.log("Changed preference");
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-    }
-
     
     const handleChange = (event) =>{
         setFile(event.target.files[0]);
@@ -68,7 +45,7 @@ export const Home = (data) =>{
                     <div className="flex flex-row h-96 w-full p-4">
                         <div className="w-96 h-full flex items-center justify-center">
                             <div className="w-3/4 h-3/4 ">
-                            <img className='w-full' src={storedUser ? storedUser.photoURL : ""} alt="Profile pick"/>
+                            <img  className='w-full' src={storedUser ? storedUser.photoURL : ""} alt="Profile pick"/>
                             </div>
                         </div>
                         <div className="h-full w-2/3 border-r-4">
@@ -99,8 +76,7 @@ export const Home = (data) =>{
                         <p>Grunt: [Addressing the Master Chief in IWHBYD easter-egg] Hey, Demon! The Jerk-Store called, and they're all out of you! Poor you; stolen at the age of six and conscripted into the military. Boo-hoo! [looking scared] Okay look, if you let me live, I got the fist of Rukh! [startled yelp] I'll be on the bottom! I'll polish your boots, I'll polish your helmet! [delirous giggle] It's the gas! When I'm on the gas I don't know what I'm doing half the time.</p>
                         </div>
                         <div className="w-1/3 h-full  flex flex-col">
-                        <button onClick={() => changePrivacy(true)}>Make account private</button>
-                        <button onClick={() => changePrivacy(false)}>Make account public</button>
+                        <a href=""><button>...Create friend request...</button></a>
                         <a href=""><button>...Message...</button></a>
                         <a href=""><button>...vieuw track...</button></a>
                         <a href=""><button>...Message...</button></a>
