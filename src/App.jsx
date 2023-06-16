@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './components/home.jsx'
 import Chats from './components/chats.jsx'
 import Discover from './components/discover.jsx'
+import Neighbour from './components/neighbour.jsx'
 import './app.css'
 
 import { useState, useEffect } from 'react';
@@ -94,6 +95,7 @@ function App() {
         <Route path="/home" element={storedUser ?  <Home user={storedUser} userUID={userUID} /> : <Navigate to="/" replace />}/>
         <Route path="/chats" element={<Chats/>}/>
         <Route path="/discover" element={<Discover userUID={userUID} />}/>
+        <Route path="/neighbour/:userUID" element={<Neighbour />}/>
       </Routes>
     </BrowserRouter>
   )

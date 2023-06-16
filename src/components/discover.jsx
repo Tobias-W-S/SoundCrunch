@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import db from '../config';
-import { BrowserRouter } from 'react-router-dom';
-import Nieghbour from './neighbour.jsx'
 
 export const discover = (data) =>{
     const [users, setUsers] = useState([]);
@@ -21,6 +19,7 @@ export const discover = (data) =>{
         const usersData = colSnapshot.docs.map((doc) => doc.data());
         setUsers(usersData);
     }
+
     const handleChange = (event) =>{
         setFile(event.target.files[0]);
     }
@@ -70,15 +69,7 @@ export const discover = (data) =>{
                         <ul><li>{user.displayName}</li><li>{user.uid}</li><li>{user.email}</li><li>{user.providerId}</li><li>{user.emailVerified}</li><li>...likes...</li></ul> 
                         <div className="h-12 w-full flex fex-row">
                             <button className='h-10 w-24 bg-green-300 hover:bg-blue-200 text-xl rounded-full'>Like</button>
-                            {/* <BrowserRouter>
-                                <Link to="/neighbour"><button className='w-20 h-full text-white font-bold hover:border-b-2 hover: border-purple-500 hover:bg-orange-400'>Profile</button></Link>
-                                <Routes>
-                                    <Route path="/discover" element={Nieghbour}/>
-                                </Routes>
-                            </BrowserRouter> */}
-
-                            {/* Tobias dit werkt half, hier moet in iedergeval de knop om naar de neighbour pagina te gaan. */}
-                          <button className='h-10 w-24 bg-purple-300 hover:bg-orange-400 text-xl rounded-full'>Profile</button>
+                            <button onClick={() => (window.location.href = `/neighbour/${user.uid}`)} className='h-10 w-24 bg-purple-300 hover:bg-orange-400 text-xl rounded-full'>Profile</button>
                         </div>
                         </div>
                        
