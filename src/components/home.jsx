@@ -97,6 +97,10 @@ export const Home = (data) =>{
                         <div className="w-1/2 h-full border-r-2">
                         <h2>BIO:</h2>
                         <p>Grunt: [Addressing the Master Chief in IWHBYD easter-egg] Hey, Demon! The Jerk-Store called, and they're all out of you! Poor you; stolen at the age of six and conscripted into the military. Boo-hoo! [looking scared] Okay look, if you let me live, I got the fist of Rukh! [startled yelp] I'll be on the bottom! I'll polish your boots, I'll polish your helmet! [delirous giggle] It's the gas! When I'm on the gas I don't know what I'm doing half the time.</p>
+                        <textarea className='border-4 border-red-200 w-full'name="" id="" cols="30" rows="5">
+                        {storedUser ? storedUser.displayName : "Not logged in"}
+                        </textarea>
+                        <p>{storedUser ? storedUser.bio : "Not logged in"}</p>
                         </div>
                         <div className="w-1/3 h-full  flex flex-col">
                         <button onClick={() => changePrivacy(true)}>Make account private</button>
