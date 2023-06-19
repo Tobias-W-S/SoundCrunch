@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import { doc, updateDoc } from "firebase/firestore";
 import db from "../config";
 
 export const Home = (data) =>{
     const [storedUser, setStoredUser] = useState([]);
+    const [fetchedUser, setFetchedUser] = useState([]);
     const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
     const storage = getStorage();
@@ -12,6 +14,7 @@ export const Home = (data) =>{
     useEffect(() =>{
         setStoredUser(data.user);
         fetchBytes();
+        getUser();
     }, [data.user]);
 
    
@@ -32,7 +35,13 @@ export const Home = (data) =>{
         })
     }
 
-    
+    const getUser = async() =>{
+        const tempCol = query(collection(db, "users"), where("uid", "==", storedUser.uid));
+        const colSnapshot = await getDocs(tempCol);
+        const usersData = colSnapshot.docs.map((doc) => doc.data());
+        setFetchedUser(usersData[0]);
+    }
+
     const handleChange = (event) =>{
         setFile(event.target.files[0]);
     }
@@ -75,7 +84,7 @@ export const Home = (data) =>{
                                 <li>{storedUser ? storedUser.email : "Not logged in"}</li>
                                 <li>...LISTENS...</li>
                                 <li>...SONGS...</li>
-                                <li>...LIKES...</li>
+                                <li>Total Likes: {fetchedUser ? fetchedUser.likes : "Not logged in"}</li>
                             </ul>
                         </div>
                         <div className="h-full w-1/4 flex flex-col justify-start">
@@ -94,19 +103,16 @@ export const Home = (data) =>{
                     <div className="flex flex-row h-96 w-full justify-around p-4">
                         <div className="w-1/2 h-full border-r-2">
                         <h2>BIO:</h2>
-                        <p>Grunt: [Addressing the Master Chief in IWHBYD easter-egg] Hey, Demon! The Jerk-Store called, and they're all out of you! Poor you; stolen at the age of six and conscripted into the military. Boo-hoo! [looking scared] Okay look, if you let me live, I got the fist of Rukh! [startled yelp] I'll be on the bottom! I'll polish your boots, I'll polish your helmet! [delirous giggle] It's the gas! When I'm on the gas I don't know what I'm doing half the time.</p>
-                        <textarea className='border-4 border-red-200 w-full'name="" id="" cols="30" rows="5">
-                        {storedUser ? storedUser.displayName : "Not logged in"}
-                        </textarea>
-                        <p>{storedUser ? storedUser.bio : "Not logged in"}</p>
-                        </div>
-                        <div className="w-1/3 h-full  flex flex-col">
-                        <button onClick={() => changePrivacy(true)}>Make account private</button>
-                        <button onClick={() => changePrivacy(false)}>Make account public</button>
-                        <a href=""><button>...Message...</button></a>
-                        <a href=""><button>...vieuw track...</button></a>
-                        <a href=""><button>...Message...</button></a>
+                        
+                        <p>{fetchedUser ? fetchedUser.bio : "Not logged in"}</p>
+                        <p>{storedUser ? storedUser.displayName : "Not logged in"}</p>
 
+                        <input type="text" name='BioChange' id='BioChange' />
+                        <button onClick={() => changeBio(BioChange)}></button>
+                        </div>
+                        <div className="w-1/3 h-full flex flex-col justify-evenly">
+                        <button className='w-42 h-10 bg-green-400 rounded-xl hover:bg-green-300' onClick={() => changePrivacy(true)}>Make account private</button>
+                        <button className='w-42 h-10 bg-red-400 rounded-xl hover:bg-red-300' onClick={() => changePrivacy(false)}>Make account public</button>
                         </div>
                     </div>
                 </div>

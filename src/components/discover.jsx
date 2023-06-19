@@ -33,16 +33,8 @@ export const discover = (data) => {
     setFile(event.target.files[0]);
   };
 
-  const handleUpload = () => {
-    const storageRef = ref(storage, `bytes/${data.userUID}/${file.name}`);
-    uploadBytes(storageRef, file).then((snapshot) => {
-      console.log('Uploaded soundbyte!');
-      fetchBytes();
-    });
-  };
-
-  const fetchBytes = async () => {
-    const storageRef = ref(storage, `bytes/${data.userUID}/`);
+  const fetchBytes = async (uid) => {
+    const storageRef = ref(storage, `bytes/${uid}/`);
     const result = await listAll(storageRef);
 
     const urlPromises = result.items.map((soundRef) =>
@@ -82,6 +74,20 @@ export const discover = (data) => {
     })
   }
 
+  const randomNumber = () =>{
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    const allUsers = [users];
+
+    const allSongs = [allUsers.fromIndex(getRandomInt(allUsers.length))]
+    const allSongsInt = getRandomInt(allSongs.length);
+   
+    return fetchBytes(allSongsInt);    
+  }
+
+  console.log(randomNumber())  
   return (
     <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
       <div className="w-3/4 h-full bg-white rounded-lg flex flex-col">
@@ -91,7 +97,13 @@ export const discover = (data) => {
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100">Random song!</button>
           <input type="text" placeholder="Username" value={searchQuery} onChange={handleSearchInputChange} />
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={handleSearch}>Look for user</button>
-          {/* Hier moet de audio speler die het nu even niet doet */}
+          
+
+
+
+
+
+
         </div>
         <div className="w-full h-content flex flex-row">
           {users.map((user) =>
@@ -126,8 +138,6 @@ export const discover = (data) => {
                       Your browser does not support the audio element.
                     </audio>
                   ))}
-                  <input type="file" accept="audio/mpeg" onChange={handleChange} />
-                  <button onClick={handleUpload}>Upload Soundbyte</button>
                 </div>
               </div>
             ) : null
