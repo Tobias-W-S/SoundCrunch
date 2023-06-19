@@ -4,11 +4,10 @@ import { getDocs, collection, query, where } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import db from '../config'
 
-export const Home = (data) =>{
+export const Home = () =>{
     const { userUID } = useParams();
 
     const [storedUser, setStoredUser] = useState([]);
-    const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
     const storage = getStorage();
 
@@ -22,18 +21,6 @@ export const Home = (data) =>{
         const colSnapshot = await getDocs(tempCol);
         const usersData = colSnapshot.docs.map((doc) => doc.data());
         setStoredUser(usersData[0]);
-    }
-    
-    const handleChange = (event) =>{
-        setFile(event.target.files[0]);
-    }
-
-    const handleUpload = () =>{
-        const storageRef = ref(storage, `bytes/${userUID}/${file.name}`);
-        uploadBytes(storageRef, file).then((snapshot) => {
-            console.log('Uploaded soundbyte!');
-            fetchBytes();
-        });
     }
 
     const fetchBytes = async () =>{
@@ -78,8 +65,6 @@ export const Home = (data) =>{
                                 </audio>
                               
                             ))}
-                            <input type="file" accept="audio/mpeg" onChange={handleChange}/>
-                            <button className='bg-green-300 w-1/2 rounded-xl text-white hover:bg-green-600 h-12' onClick={() => handleUpload()}>Upload Soundbyte</button>
                         </div>
                     </div>
                     <div className="flex flex-row h-96 w-full justify-around p-4">
