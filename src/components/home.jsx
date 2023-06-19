@@ -19,8 +19,6 @@ export const Home = (data) =>{
     const changePrivacy = (privacySetting) =>{
         const docRef = doc(db, "users", storedUser.uid);
 
-        //needs to change privacy based on previous setting
-
         const data = {
             isPrivate : privacySetting,
         }; 
