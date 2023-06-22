@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, getDocs, doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { collection, getDoc, getDocs, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import db from '../config';
 
@@ -74,6 +74,7 @@ export const discover = (data) => {
     })
   }
 
+
   const randomNumber = () =>{
     function getRandomInt(max) {
       return Math.floor(Math.random() * max);
@@ -88,6 +89,35 @@ export const discover = (data) => {
   }
 
   console.log(randomNumber())  
+
+  const likeUser = (uid) =>{
+    const docRef = doc(db, "users", uid);
+
+    getDoc(docRef)
+    .then((doc) => {
+      if (doc.exists()) {
+        const currentLikes = doc.data().likes || 0;
+        const updatedLikes = currentLikes + 1;
+
+        const updatedData = {
+          likes: updatedLikes
+        };
+
+        return updateDoc(docRef, updatedData);
+      } else {
+        console.log("User document does not exist");
+        return null;
+      }
+    })
+    .then(docRef => {
+      console.log("Liked user");
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+  }
+
+
   return (
     <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
       <div className="w-3/4 h-full bg-white rounded-lg flex flex-col">
@@ -111,14 +141,11 @@ export const discover = (data) => {
                   <div className="w-1/2 h-full">
                     <ul>
                       <li>{user.displayName}</li>
-                      <li>{user.uid}</li>
-                      <li>{user.email}</li>
-                      <li>{user.providerId}</li>
-                      <li>{user.emailVerified}</li>
-                      <li>...likes...</li>
+
+                      <li>Likes: {user.likes}</li>
                     </ul>
                     <div className="h-12 w-full flex flex-row">
-                      <button className="h-10 w-24 bg-green-300 hover:bg-blue-200 text-xl rounded-full">Like</button>
+                      <button onClick={() => (likeUser(user.uid))} className="h-10 w-24 bg-green-300 hover:bg-blue-200 text-xl rounded-full">Like</button>
                       <button onClick={() => (window.location.href = `/neighbour/${user.uid}`)} className="h-10 w-24 bg-purple-300 hover:bg-orange-400 text-xl rounded-full">Profile</button>
                     </div>
                     <div className="h-12 w-full flex flex-row">

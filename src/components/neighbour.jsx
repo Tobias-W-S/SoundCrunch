@@ -52,7 +52,7 @@ export const Home = () =>{
                                 <li>{storedUser ? storedUser.email : "Not logged in"}</li>
                                 <li>...LISTENS...</li>
                                 <li>...SONGS...</li>
-                                <li>...LIKES...</li>
+                                <li>Total Likes: {storedUser.likes}</li>
                             </ul>
                         </div>
                         <div className="h-full w-1/4 flex flex-col justify-start">
