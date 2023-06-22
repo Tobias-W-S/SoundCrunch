@@ -99,11 +99,6 @@ export const discover = (data) => {
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={handleSearch}>Look for user</button>
           
 
-
-
-
-
-
         </div>
         <div className="w-full h-content flex flex-row">
           {users.map((user) =>
