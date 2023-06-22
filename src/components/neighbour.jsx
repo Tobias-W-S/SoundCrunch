@@ -6,7 +6,6 @@ import db from '../config'
 
 export const Home = () =>{
     const { userUID } = useParams();
-
     const [storedUser, setStoredUser] = useState([]);
     const [files, setFiles] = useState([]);
     const storage = getStorage();
