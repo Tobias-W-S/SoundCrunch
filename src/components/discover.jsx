@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { collection, getDoc, getDocs, doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { collection, getDoc, getDocs,where, doc, updateDoc, arrayUnion, query } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage";
 import db from '../config';
 
 export const discover = (data) => {
@@ -8,6 +8,9 @@ export const discover = (data) => {
   const [file, setFile] = useState("");
   const [files, setFiles] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [randomSongNumber, setRandomSongNumber] = useState();
+  const [randomUser, setRandomUser] = useState();  
   const storage = getStorage();
 
   useEffect(() => {
@@ -75,20 +78,53 @@ export const discover = (data) => {
   }
 
 
-  const randomNumber = () =>{
+
+
+  const getRandomSongFromRandomUser = () => {
     function getRandomInt(max) {
       return Math.floor(Math.random() * max);
     }
+    const randomUserInt = getRandomInt(users.length);
+    const randomUs = users[randomUserInt];
+    console.log
 
-    const allUsers = [users];
+    const songRef = collection(db, randomUs.uid);
+    console.log(songRef);
+    const song = query(songRef, where("bytes", "==", randomUs.uid));
+    console.log(song)
 
-    const allSongs = [allUsers.fromIndex(getRandomInt(allUsers.length))]
-    const allSongsInt = getRandomInt(allSongs.length);
-   
-    return fetchBytes(allSongsInt);    
+    document.getElementById(randomSong).innerHTML = song
+
+
+    getDownloadURL(ref(storage, 'GBMlAkjglZRq3pguMJ3G4XIlPKR2'))
+    .then((url) => {
+      // `url` is the download URL for 'images/stars.jpg'
+  
+      // This can be downloaded directly:
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'mp3';
+      xhr.onload = (event) => {
+        const blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+
+ // get all songs from randomUs.uid
+
+
+ //pomp in state vol randomUserSongs
+
+ //getgandomint - randomusersongs.length
+
   }
 
-  console.log(randomNumber())  
+
+
 
   const likeUser = (uid) =>{
     const docRef = doc(db, "users", uid);
@@ -124,7 +160,8 @@ export const discover = (data) => {
         <div className="h-32 w-full border-b-4 p-4">
           <h1>Discover</h1>
           <p>Here you can discover new people and songs. How about a random song?</p>
-          <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100">Random song!</button>
+          <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={() => getRandomSongFromRandomUser()}>Random song!</button>
+          <p id='randomSong'></p>
           <input type="text" placeholder="Username" value={searchQuery} onChange={handleSearchInputChange} />
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={handleSearch}>Look for user</button>
           
