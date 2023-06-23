@@ -9,6 +9,7 @@ export const Home = (data) =>{
     const [fetchedUser, setFetchedUser] = useState([]);
     const [file, setFile] = useState("");
     const [files, setFiles] = useState([]);
+    const [newBio, setNewBio] = useState("");
     const storage = getStorage();
 
     useEffect(() =>{
@@ -68,6 +69,21 @@ export const Home = (data) =>{
             });
     }
 
+    const updateBio = async () => {
+        try {
+          const docRef = doc(db, "users", storedUser.uid);
+          const data = {
+            bio: newBio,
+          };
+          await updateDoc(docRef, data);
+          console.log("Bio updated successfully");
+
+          setFetchedUser({ ...fetchedUser, bio: newBio });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
     return(
         <div className="min-w-full min-h-screen bg-purple-700 flex justify-center items-center">
                 <div className="h-10"></div>
@@ -102,17 +118,14 @@ export const Home = (data) =>{
                     </div>
                     <div className="flex flex-row h-96 w-full justify-around p-4">
                         <div className="w-1/2 h-full border-r-2">
-                        <h2>BIO:</h2>
-                        
-                        <p>{fetchedUser ? fetchedUser.bio : "Not logged in"}</p>
-                        <p>{storedUser ? storedUser.displayName : "Not logged in"}</p>
-
-                        <input type="text" name='BioChange' id='BioChange' />
-                        <button onClick={() => changeBio(BioChange)}></button>
+                            <h2>BIO:</h2>               
+                            <p>{fetchedUser ? fetchedUser.bio : "Not logged in"}</p>
+                            <input type="text" placeholder="Enter new bio" className="border-orange-300 border-solid border-2" value={newBio} onChange={(e) => setNewBio(e.target.value)}/>
+                            <button onClick={updateBio} className='bg-orange-300 border-orange-300 border-solid border-2'>Confirm bio</button>
                         </div>
                         <div className="w-1/3 h-full flex flex-col justify-evenly">
-                        <button className='w-42 h-10 bg-green-400 rounded-xl hover:bg-green-300' onClick={() => changePrivacy(true)}>Make account private</button>
-                        <button className='w-42 h-10 bg-red-400 rounded-xl hover:bg-red-300' onClick={() => changePrivacy(false)}>Make account public</button>
+                            <button className='w-42 h-10 bg-green-400 rounded-xl hover:bg-green-300' onClick={() => changePrivacy(true)}>Make account private</button>
+                            <button className='w-42 h-10 bg-red-400 rounded-xl hover:bg-red-300' onClick={() => changePrivacy(false)}>Make account public</button>
                         </div>
                     </div>
                 </div>
