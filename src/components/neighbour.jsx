@@ -47,11 +47,9 @@ export const Home = () =>{
                             </div>
                         </div>
                         <div className="h-full w-2/3 border-r-4">
-                            <ul className="h-3/4 flex flex-col justify-around  ">
+                            <ul className="h-3/4 flex flex-col justify-start  ">
                                 <li className="font-semibold text-xl border-b-2 border-red-100">{storedUser ? storedUser.displayName : "Not logged in"}</li>
                                 <li>{storedUser ? storedUser.email : "Not logged in"}</li>
-                                <li>...LISTENS...</li>
-                                <li>...SONGS...</li>
                                 <li>Total Likes: {storedUser.likes}</li>
                             </ul>
                         </div>
@@ -62,21 +60,15 @@ export const Home = () =>{
                                     <source src={url} type="audio/mpeg" />  
                                    Your browser does not support the audio element.
                                 </audio>
-                              
                             ))}
                         </div>
                     </div>
                     <div className="flex flex-row h-96 w-full justify-around p-4">
                         <div className="w-1/2 h-full border-r-2">
                         <h2>BIO:</h2>
-                        <p>Grunt: [Addressing the Master Chief in IWHBYD easter-egg] Hey, Demon! The Jerk-Store called, and they're all out of you! Poor you; stolen at the age of six and conscripted into the military. Boo-hoo! [looking scared] Okay look, if you let me live, I got the fist of Rukh! [startled yelp] I'll be on the bottom! I'll polish your boots, I'll polish your helmet! [delirous giggle] It's the gas! When I'm on the gas I don't know what I'm doing half the time.</p>
-                        </div>
+                        <p>{storedUser ? storedUser.bio : "Not logged in"}</p>
+                       </div>
                         <div className="w-1/3 h-full  flex flex-col">
-                        <a href=""><button>...Create friend request...</button></a>
-                        <a href=""><button>...Message...</button></a>
-                        <a href=""><button>...vieuw track...</button></a>
-                        <a href=""><button>...Message...</button></a>
-
                         </div>
                     </div>
                 </div>

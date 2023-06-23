@@ -1,4 +1,10 @@
 export const chats = () =>{
+
+
+    //here lies a page that didn't make it
+
+
+    
     return(
         <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
                 <div className="w-3/4 h-3/4 bg-white rounded-lg flex flex-row">
