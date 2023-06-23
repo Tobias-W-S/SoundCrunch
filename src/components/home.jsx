@@ -95,11 +95,9 @@ export const Home = (data) =>{
                             </div>
                         </div>
                         <div className="h-full w-2/3 border-r-4">
-                            <ul className="h-3/4 flex flex-col justify-around  ">
+                            <ul className="h-3/4 flex flex-col justify-start  ">
                                 <li className="font-semibold text-xl border-b-2 border-red-100">{storedUser ? storedUser.displayName : "Not logged in"}</li>
                                 <li>{storedUser ? storedUser.email : "Not logged in"}</li>
-                                <li>...LISTENS...</li>
-                                <li>...SONGS...</li>
                                 <li>Total Likes: {fetchedUser ? fetchedUser.likes : "Not logged in"}</li>
                             </ul>
                         </div>
@@ -112,8 +110,9 @@ export const Home = (data) =>{
                                 </audio>
                               
                             ))}
-                            <input type="file" accept="audio/mpeg" onChange={handleChange}/>
-                            <button className='bg-green-300 w-1/2 rounded-xl text-white hover:bg-green-600 h-12' onClick={() => handleUpload()}>Upload Soundbyte</button>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                            <input class=" block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept="audio/mpeg" onChange={handleChange} ></input>
+                            <button className='bg-green-300 w-full rounded-xl text-white hover:bg-green-600 h-12' onClick={() => handleUpload()}>Upload Soundbyte</button>
                         </div>
                     </div>
                     <div className="flex flex-row h-96 w-full justify-around p-4">

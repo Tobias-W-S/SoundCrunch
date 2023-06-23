@@ -93,7 +93,8 @@ export const discover = (data) => {
     const song = query(songRef, where("bytes", "==", randomUs.uid));
     console.log(song)
 
-    document.getElementById(randomSong).innerHTML = song
+    document.getElementById(randomSong).innerHTML = randomUs;
+    document.getElementById(randomSong).outerHTML = randomUs;
 
 
     getDownloadURL(ref(storage, 'GBMlAkjglZRq3pguMJ3G4XIlPKR2'))
@@ -157,13 +158,16 @@ export const discover = (data) => {
   return (
     <div className="min-w-full min-h-screen h-screen bg-purple-700 flex justify-center items-center">
       <div className="w-3/4 h-full bg-white rounded-lg flex flex-col">
-        <div className="h-32 w-full border-b-4 p-4">
-          <h1>Discover</h1>
+        <div className="h-42 w-full border-b-4 p-4 flex flex-col flex-wrap">
+          <h1 className='text-xl'>Discover</h1>
           <p>Here you can discover new people and songs. How about a random song?</p>
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={() => getRandomSongFromRandomUser()}>Random song!</button>
           <p id='randomSong'></p>
-          <input type="text" placeholder="Username" value={searchQuery} onChange={handleSearchInputChange} />
+          <div className="h-content w-content border-t-4 m-3 p-3 ">
+            <input type="text" placeholder="Username" value={searchQuery} onChange={handleSearchInputChange} />
           <button className="bg-gray-200 rounded-xl w-32 h-12 hover:bg-blue-100" onClick={handleSearch}>Look for user</button>
+          </div>
+
           
 
         </div>
@@ -197,6 +201,8 @@ export const discover = (data) => {
                       Your browser does not support the audio element.
                     </audio>
                   ))}
+
+                  <p>hier hoort de audio dingen te staan. Maar dat doen ze niet.</p>
                 </div>
               </div>
             ) : null
